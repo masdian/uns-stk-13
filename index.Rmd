@@ -66,8 +66,8 @@ xaringanExtra::use_search(show_icon = TRUE)
 # **.purple[Outline]**
 
 - ##Pendahuluan
-- ##Korelasi
-- ##Uji Hipotesis untuk Korelasi
+- ##Analisis Regresi
+- ##Uji Hipotesis untuk Regresi
 
 ]
 
@@ -120,6 +120,8 @@ Analisis statistika yang memanfaatkan **hubungan sebab akibat** antara dua atau 
 
 
 ]
+
+--
 
 .pull-right[
 
@@ -191,6 +193,8 @@ _Misalnya_: IQ vs Prestasi, Berat vs Tinggi, Dosis Pupuk vs Produksi
 
 ]
 
+--
+
 .pull-right[
 
 ### .green[**Persamaan**] Regresi Linear Sederhana
@@ -234,6 +238,8 @@ $$Y_i=\beta_0+\beta_1X_i+\epsilon_i \xrightarrow{\text{diduga oleh}} \hat{Y}_i=b
 # .red[$$\text{Interpretasi?}$$]
 
 ]
+
+--
 
 .pull-right[
 
@@ -282,6 +288,8 @@ $$Y_i=\beta_0+\beta_1X_i+\epsilon_i \xrightarrow{\text{diduga oleh}} \hat{Y}_i=b
 
 ]
 
+--
+
 .pull-right[
 
 ### Metode Kuadrat Terkecil (.red[Meminimumkan jumlah kuadrat galat/error])
@@ -315,6 +323,8 @@ $$\hat{Y}=b_0+b_1X$$
 
 ]
 
+--
+
 .pull-right[
 
 ### Keragamaman yang dapat dijelaskan dan tidak dapat dijelaskan
@@ -345,6 +355,8 @@ $$\hat{Y}=b_0+b_1X$$
 
 
 ]
+
+--
 
 .pull-right[
 
@@ -378,20 +390,15 @@ $$\hat{Y}=b_0+b_1X$$
 
 | Sumber    | db   | Jumlah Kuadrat (JK)    | Kuadrat Tengah (KT)    | $F_0$ |
 |:--        |:--:   | :--  | :--  | :--  |
-| Regresi   | 1     | $\text{JKR}=b_1\text{JK}_{XX}$  | $\text{KTR}=\text{JKR}/1$ | $\text{KTR}/\text{KTG}$ |
+| Regresi   | 1     | $\text{JKR}=b_1\text{JK}_{XY}$  | $\text{KTR}=\text{JKR}/1$ | $\text{KTR}/\text{KTG}$ |
 | Galat     | $n-2$ | $\text{JKG}=\text{JKT}-\text{JKR}$  | $\text{KTG}=\text{JKG}/(n-2)$ |   |
-| Total     | $n-1$ | $JKT=\text{JK}_{XY}$  |   |   |
+| Total     | $n-1$ | $\text{JKT}=\text{JK}_{YY}$  |   |   |
 
 $\text{JK}_{XY}=\sum x_i y_i-\dfrac{\sum x_i \sum y_i}{n}$
 
-$\text{JK}_{XX}=\sum x^2_i-\dfrac{(\sum x_i)^2}{n}$
+$\text{JK}_{YY}=\sum y^2_i-\dfrac{(\sum y_i)^2}{n}$
 
 ]
-
-
-
-
-
 
 ---
 
@@ -415,6 +422,8 @@ sesuai/pas pada taraf nyata $\alpha$
 
 ]
 
+--
+
 .pull-right[
 
 ### Uji parsial (per koefisien) $\rightarrow$ Uji t
@@ -427,110 +436,261 @@ sesuai/pas pada taraf nyata $\alpha$
     
   - Statistik Uji
   
-  $$t_0=(b_1-\beta_1)\sqrt{\dfrac{\text{JK}_{XX}}{\text{KTR}}}$$
+  $$t_0=(b_1-\beta_1)\sqrt{\dfrac{\text{JK}_{XX}}{\text{KTG}}}$$
   - Titik kritis
+  $$t_{\frac{\alpha}{2},(n-2)}$$
   
 ]
 
 ---
 
+.pull.center[
 
+### **Uji Hipotesis**
+
+]
+
+.pull-left[
+
+- Wilayah penolakan $H_0$
+  
+  ![](gb_08.jpg)
+
+- Kesimpulan <br>
+  Tolak $H_0 \rightarrow$  Cukup bukti untuk menyatakan bahwa $X$ mempengaruhi $Y$ secara linear pada taraf nyata $\alpha$
+
+]
+
+--
+
+.pull-right[
+
+### Koefisien Determinasi $(R^2)$
+
+### $$R^2=\dfrac{\text{JKR}}{\text{JKT}}\times100\%$$
+
+.red[**Interpretasi**] : sebesar $R^2$ keragaman $Y$ mampu dijelaskan
+oleh $X$, sedangkan sisanya $(100-R^2)\%$ dijelaskan oleh faktor lain
+yang tidak dimasukkan dalam model
+
+Dalam regresi linear sederhana:
+$$(r)^2=R^2$$
+
+]
 
 ---
 
+.pull-left[
 
+**Contoh**
+
+Promosi penjualan untuk suatu produk diduga mempengaruhi besar kecilnya penjualan dari produk tersebut. Untuk menguji dugaan tersebut, dipilih 5 buah produk secara acak dan diperoleh data sebagai berikut.
+
+| $X$ | 1 | 2 | 4 | 6 | 7 |
+|:--: |:--: |:--: |:--: |:--: |:--: |
+| $Y$ | 3 | 5 | 7 | 8 | 10 |
+
+di mana:<br>
+$X:$ % kenaikan biaya promosi dalam setahun<br>
+$Y:$ % kenaikan penjualan selama setahun
+
+Tentukan:<br>
+- Peubah respon dan peubah penjelas
+- Apakah model regresi linear sesuai pada $\alpha=5\%$?
+- Apakah variabel $Y$ mampu dijelaskan oleh variabel $X$ pada $\alpha=5\%$?
+- Koefisien determinasi
+- Prediksi penjualan jika biaya promosi dinaikan sebesar 5%.
+
+]
+
+--
+
+.pull-right[
+
+- Peubah respon: **% kenaikan penjualan selama setahun $(Y)$** <br>
+  Peubah penjelas: **% kenaikan biaya promosi dalam setahun $(X)$**
+  
+- Untuk mengetahui apakah model regresi linear sesuai, maka bisa menggunakan uji simultan (bersama)
+
+|No| $X$ | $Y$ | $XY$ | $X^2$ | $Y^2$ |
+|:--:|:--:|:--:|:--:|:--:|:--:|
+|1|1|3|3|1|9|
+|2|2|5|10|4|25|
+|3|4|7|28|16|49|
+|4|6|8|48|36|64|
+|5|7|10|70|49|100|
+| $\sum$ |20|33|159|106|247|
+
+$\sum x_i=20$, $\sum y_i=33$, $\sum x_i y_i=159$ <br>
+$\sum x^2_i=106$, $\sum y^2_i=247$
+]
 
 ---
 
+.pull-left[
 
+Model regresi linear yang digunakan:
+$$Y_i=\beta_0+\beta_1X_i+\epsilon_i$$
+Penduga untuk $\beta_1$:
+$$\begin{align*}
+b_1&=\dfrac{n\sum x_iy_i-\sum x_i \sum y_i}{n\sum x^2_i-(\sum x_i)^2}\\
+&=\dfrac{5(159)-20(33)}{5(106)-(20)^2} \\
+&=1.04
+\end{align*}$$
+Penduga untuk $\beta_0$:
+$$\begin{align*}
+b_0&=\bar{Y}-b_1\bar{X} \\
+&=\dfrac{\sum y_i}{n}-b_1\dfrac{\sum x_i}{n} \\
+&=\dfrac{33}{5}-1.04\dfrac{20}{5} \\
+&=2.44
+\end{align*}$$
+]
 
----
+--
 
+.pull-right[
 
+Jadi, persamaan regresi linearnya adalah:
+$$\hat{Y}_i=2.44+1.04X_i$$
+Setiap kenaikain biaya promosi sebesar 1% akan meningkatkan penjualan sebesar 1.04%
+
+**Uji Simultan (bersama)**
+
+- Hipotesis : <br>
+    $H0 : \beta_1 = 0$ ( model tidak sesuai/pas) <br>
+    $H1 : \beta_1 \ne 0$ ( model sesuai/pas)
+    
+- Taraf nyata $5\%$
+
+- Statistik Uji
+  
+  $$F_0=\dfrac{\text{KTR}}{\text{KTG}}$$
+
+$\text{JK}_{XY}=\sum x_i y_i-\dfrac{\sum x_i \sum y_i}{n}=159-\dfrac{20(33)}{5}=27$
+
+$\text{JK}_{YY}=\sum y^2_i-\dfrac{(\sum y_i)^2}{n}=247-\dfrac{(33)^2}{5}=29.2$
+
+]
 
 ---
 
 
 .pull-left[
-### Wilayah Penolakan $H_0$ (uji dua arah)
+### ANOVA
 
+| Sumber    | db   | Jumlah Kuadrat (JK)    | Kuadrat Tengah (KT)    | $F_0$ |
+|:--        |:--:   | :--:  | :--:  | :--:  |
+| Regresi   | 1     | $28.08$  | $28.08$ | $75.89$ |
+| Galat     | $3$ | $1.12$  | $0.37$ |   |
+| Total     | $4$ | $29.2$  |   |   |
 
-![](gb_08.jpg)
+$\text{JKT}=\text{JK}_{YY}=29$
 
+$\text{JKR}=b_1\times\text{JK}_{XY}=1.04\times27=28.08$
 
+$\text{JKG}=\text{JKT}-\text{JKR}=29.2-28.08=1.12$
 
+$\text{KTR}=\text{JKR}/1=28.08$
 
-### Kesimpulan
-Tolak $H_0$ : Cukup bukti untuk menyatakan bahwa ada korelasi antara $X$ dengan $Y$ pada taraf nyata $\alpha$
+$\text{KTG}=\text{JKG}/3=1.12/3=0.37$
+
+$\text{JK}_{XX}=\sum x^2_i-\dfrac{(\sum x_i)^2}{n}=106-\dfrac{(20)^2}{5}=26$
 
 ]
 
+--
+
 .pull-right[
 
-<br><br><br>
-**Latihan 1**
+- Titik Kritis
+$$F_{0.05,(1,3)}=10.13$$<br>
+$H_0$ ditolak jika $F_0>F_{0.05,(1,3)}$
 
-Dari data pada contoh di slide 12, ujilah hipotesis apakah terdapat korelasi yang signifikan antara tinggi dengan bobot badan pada $\alpha=5\%$
+- Kesimpulan <br>
+  Karena $F_0=75.89>10.13$, maka $H_0$ ditolak. Cukup bukti untuk menyatakan bahwa model tersebut sesuai/pas pada taraf nyata $5\%$
 
-___
 
-**Latihan 2**
+**Untuk menguji apakah variabel $Y$ bisa dijelaskan oleh variabel $X$, maka bisa dilakukan uji parsial**
 
-Seorang dosen berpendapat bahwa ada hubungan yang positif antara IQ mahasiswa dengan hasil UAS Statistika. Untuk menguji pendapatnya, 6 orang mahasiswa dipilih secara acak dan diperoleh data berikut.
-
-| IQ | 110 | 120 | 125 | 130 | 130 | 140 |
-| :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| UAS | 90 | 80 | 90 | 95 | 85 | 95 |
-
-Ujilah pendapat dosen tersebut dengan taraf nyata $5\%$.
-
+- Hipotesis : <br>
+    $H0 : \beta_1 = 0$ $(X$ tidak mempengaruhi $Y)$ <br>
+    $H1 : \beta_1 \ne 0$ $(X$ mempengaruhi $Y)$
+    
+- Statistik Uji
+  
+$$t_0=(b_1-\beta_1)\sqrt{\dfrac{\text{JK}_{XX}}{\text{KTG}}}=8.72$$
+ 
 ]
 ---
 
 .pull-left[
 
-**Latihan 1**
+ - Titik kritis
+  $$t_{\frac{\alpha}{2},(n-2)}=t_{0.025,3}=3.18$$
+  $H_0$ ditolak jika $t_0<-3.18$ atau $t_0>3.18$
+  
+- Kesimpulan <br>
+  Karena $t_0=8.72>3.18$, maka $H_0$ ditolak. Cukup bukti untuk menyatakan bahwa $X$ mempengaruhi $Y$ secara linear pada taraf nyata $5\%$
 
-Dari data pada contoh di atas, ujilah hipotesis apakah terdapat korelasi yang signifikan antara tinggi dengan bobot badan pada $\alpha=5\%$
 
-___
+**Koefisien Determinasi $R^2$**
 
-**Latihan 2**
+$R^2=\dfrac{\text{JKR}}{\text{JKT}}\times100\%=\dfrac{28.08}{29.2}\times100\%=96.2\%$
 
-Seorang dosen berpendapat bahwa ada hubungan yang positif antara IQ mahasiswa dengan hasil UAS Statistika. Untuk menguji pendapatnya, 6 orang mahasiswa dipilih secara acak dan diperoleh data berikut.
-
-| IQ | 110 | 120 | 125 | 130 | 130 | 140 |
-| :--: | :--: | :--: | :--: | :--: | :--: | :--: |
-| UAS | 90 | 80 | 90 | 95 | 85 | 95 |
-
-Ujilah pendapat dosen tersebut dengan taraf nyata $5\%$.
+Interpretasi: 96.2% keragaman pada variabel $Y$ mampu dijelaskan
+oleh variabel $X$, sedangkan sisanya $3.8\%$ keragaman dijelaskan oleh variabel/faktor lain yang tidak dimasukkan dalam model regresi.
 
 ]
+
+--
 
 .pull-right[
 
-**Latihan 3**
+**Prediksi penjualan jika biaya <br> promosi dinaikan sebesar 5%**
 
-Diketahui tabel berikut.
+Persmaan regresi linear sederhana yang <br> diperoleh adalah
 
-| Tahun | Ekspor | PDB | Investasi |
-| :--: | :--: | :--: | :--: |
-| 1976 | 7.4 | 15.5 | 2.6 |
-| 1977 | 7.1 | 19.0 | 3.2 |
-| 1978 | 8.5 | 22.8 | 3.7 |
-| 1979 | 10.8 | 32.0 | 4.7 |
-| 1980 | 11.6 | 45.4 | 6.7 |
-| 1981 | 15.6 | 54.0 | 9.5 |
-| 1982 | 24.0 | 59.6 | 11.5 |
-| 1983 | 25.2 | 61.4 | 13.5 |
-| 1984 | 22.3 | 86.1 | 19.0 |
-| 1985 | 21.1 | 92.8 | 19.3 |
-| 1986 | 21.9 | 95.3 | 19.6 |
+$$\hat{Y}_i=2.44+1.04X_i$$
+Jika diketahui % kenaikan biaya promosi sebesar 5% $(X=5\%)$, maka prediksi nilai penjualannya $(\hat{Y})$ adalah
 
-Tentukan pasangan peubah `Ekspor`, `PDB`, dan `Investasi` yang memiliki korelasi paling kuat.
-
+$$\hat{Y}=2.44+1.04(5)=7.64$$
+Jika kenaikan biaya promosi adalah sebesar 5%, maka penjualan diprediksi akan naik sebesar 7.64%.
 ]
 
+
+---
+
+.pull-left[
+
+### Keterbatasan Korelasi dan Regresi Linear Sederhana
+- ###Korelasi dan Regresi Linear hanya menggambarkan hubungan yang linear
+- ###Korelasi dan metode kuadrat terkecil pada regresi linear tidak resisten terhadap pencilan
+- ###Prediksi di luar selang nilai X tidak diperkenankan karena kurang akurat
+- ###Hubungan antara dua peubah bisa dipengaruhi oleh peubah lain di luar model
+]
+
+--
+
+.pull-right[
+
+**Latihan**
+
+Apakah semakin tua mobil semakin besar juga emisi HC yang dihasilkan?
+
+Diambil contoh 10 mobil secara acak, kemudian dicatat jarak tempuh yang sudah dijalani mobil (dalam ribu kilometer) dan diukur Emisi HC-nya (dalam ppm)
+
+|Jarak|31|38|48|52|63|67|75|84|89|99|
+|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|:--:|
+|Emisi|553|590|608|682|752|725|834|752|845|960|
+
+Tentukan:<br>
+- Peubah respon dan peubah penjelas
+- Apakah model regresi linear sesuai pada $\alpha=5\%$?
+- Apakah variabel $Y$ mampu dijelaskan oleh variabel $X$ pada $\alpha=5\%$?
+- Koefisien determinasi
+- Dugaan emisi yang dihasilkan jika jarak 50 dan 200
+
+]
 
 ---
 
