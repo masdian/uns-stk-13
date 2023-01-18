@@ -714,6 +714,8 @@ x &lt;- c(1, 2, 4, 6, 7)
 y &lt;- c(3, 5, 7, 8, 10)
 ```
 
+Gunakan fungsi `lm()` untuk membentuk model regresi linier dan fungsi `summary()` untuk melihat ringkasan hasilnya.
+
 
 ```r
 model &lt;- lm(y ~ x)
@@ -724,7 +726,6 @@ summary(model)
 
 
 .pull-right[
-
 
 
 ]
@@ -757,6 +758,25 @@ Berikut adalah output yang dihasilkan.
 ```
 
 
+---
+
+&lt;br&gt;&lt;br&gt;&lt;br&gt;
+
+Gunakan fungsi **`anova()`** untuk mendapatkan ANOVA dari model regresi yang dibuat.
+
+
+```
+## Analysis of Variance Table
+## 
+## Response: y
+##           Df  Sum Sq Mean Sq F value   Pr(&gt;F)   
+## x          1 28.0385 28.0385  72.417 0.003408 **
+## Residuals  3  1.1615  0.3872                    
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+```
+
+### Apakah hasilnya sama dengan perhitungan manual?
 
 ---
 
