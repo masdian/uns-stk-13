@@ -712,7 +712,13 @@ summary(model)
 
 <br><br><br>
 
-Gunakan fungsi **`anova()`** untuk mendapatkan ANOVA dari model regresi yang dibuat.
+Gunakan fungsi **`anova()`** untuk mendapatkan ANOVA dari model regresi yang 
+
+```{r eval=FALSE}
+anova(model)
+```
+
+Berikut adalah *output* yang dihasilkan.
 
 ```{r echo=FALSE}
 x <- c(1, 2, 4, 6, 7)
