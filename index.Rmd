@@ -77,12 +77,12 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 ## **Pendahuluan**
 
-### Hubungan Antara 2 Peubah atau Lebih
+#### Hubungan Antara 2 Peubah atau Lebih
 
 | PEUBAH    | KASUS   | PENGUMPULAN DATA    | JENIS HUBUNGANNYA |
 |:--        |:--      | :--                 |:--                |
-|1. Dosis Pupuk <br> 2. Banyaknya padi yang dihasilkan | Diduga dosis pupuk mempengaruhi banyaknya padi yang dihasilkan/ha | Dosis pupuk ditentukan dahulu, faktor-faktor lain yg mempengaruhi banyaknya padi dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya padi yang dihasilkan | Perubahan banyaknya padi yg dihasilkan/ha dipengaruhi oleh perubahan dosis pupuk $\rightarrow$ **HUB SEBAB AKIBAT** |
-|1. Tinggi badan <br> 2. Berat badan | Diduga tinggi badan dan berat badan memiliki hubungan | Dimulai dengan mengamati tinggi badan dahulu, disusul mengamati peubah yang dianggap relevan (berat badan), atau sebaliknya.| Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh perubahan peubah lainnya <br> $\rightarrow$ **bukan HUB SEBAB AKIBAT** Ingin diketahui kekuatan dan arah hubungannya|
+|1. Dosis Pupuk <br> 2. Banyaknya padi yang dihasilkan | Diduga dosis pupuk mempengaruhi banyaknya padi yang dihasilkan/ha | Dosis pupuk ditentukan dahulu, faktor-faktor lain yg mempengaruhi banyaknya padi dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya padi yang dihasilkan | Perubahan banyaknya padi yg dihasilkan/ha dipengaruhi oleh perubahan dosis pupuk $\rightarrow$ .red[**HUB SEBAB AKIBAT**] |
+|1. Tinggi badan <br> 2. Berat badan | Diduga tinggi badan dan berat badan memiliki hubungan | Dimulai dengan mengamati tinggi badan dahulu, disusul mengamati peubah yang dianggap relevan (berat badan), atau sebaliknya.| Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh perubahan peubah lainnya <br> $\rightarrow$ .red[**bukan HUB SEBAB AKIBAT**] Ingin diketahui kekuatan dan arah hubungannya|
 
 ]
 
@@ -94,8 +94,8 @@ xaringanExtra::use_search(show_icon = TRUE)
 
 | PEUBAH    | KASUS   | PENGUMPULAN DATA    | JENIS HUBUNGANNYA |
 |:--        |:--      | :--                 |:--                |
-|1. Banyaknya barang terjual/minggu <br> 2. Adanya hari libur/tidak <br> 3. Harga barang | Diduga banyaknya barang terjual/minggu dipengaruhi oleh berbagai peubah, misalnya harga barang, ada/ tidaknya hari libur dlm minggu tsb | Harga barang ditentukan lebih dahulu, faktor-faktor lain yg mempengaruhi banyaknya barang terjual dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya barang yg terjual pada minggu ada hari libur dan minggu tanpa hari libur | Perubahan banyaknya barang yg terjual dipengaruhi oleh perubahan harga dan ada/tidaknya hari libur <br> $\rightarrow$ **Hub SEBAB AKIBAT** |
-|1. Bobot badan <br> 2. Bobot jantung | Diduga bobot badan dan bobot jantung memiliki hubungan | Dimulai dengan mengamati bobot badan terlebih dahulu, segera disusul mengamati peubah yg dianggap relevan (dalam hal ini bobot jantung), atau sebaliknya. | Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh peubah lainnya. <br> $\rightarrow$ **bukan SEBAB AKIBAT**. Ingin diketahui model matematisnya (HUB KUANTITATIF)    |
+|1. Banyaknya barang terjual/minggu <br> 2. Adanya hari libur/tidak <br> 3. Harga barang | Diduga banyaknya barang terjual/minggu dipengaruhi oleh berbagai peubah, misalnya harga barang, ada/ tidaknya hari libur dlm minggu tsb | Harga barang ditentukan lebih dahulu, faktor-faktor lain yg mempengaruhi banyaknya barang terjual dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya barang yg terjual pada minggu ada hari libur dan minggu tanpa hari libur | Perubahan banyaknya barang yg terjual dipengaruhi oleh perubahan harga dan ada/tidaknya hari libur <br> $\rightarrow$ .red[**Hub SEBAB AKIBAT**] |
+|1. Bobot badan <br> 2. Bobot jantung | Diduga bobot badan dan bobot jantung memiliki hubungan | Dimulai dengan mengamati bobot badan terlebih dahulu, segera disusul mengamati peubah yg dianggap relevan (dalam hal ini bobot jantung), atau sebaliknya. | Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh peubah lainnya. <br> $\rightarrow$ .red[**bukan SEBAB AKIBAT**]. Ingin diketahui model matematisnya (HUB KUANTITATIF)    |
 
 ]
 
@@ -657,6 +657,72 @@ $$\hat{Y}=2.44+1.04(5)=7.64$$
 Jika kenaikan biaya promosi adalah sebesar 5%, maka penjualan diprediksi akan naik sebesar 7.64%.
 ]
 
+---
+
+
+.pull-left[
+
+### Analisis Regresi Linier Sederhana menggunakan R
+
+
+Perhitungan analisis regresi linier sederhana pada contoh sebelumnya bisa dilakukan dengan menggunakan bantuan R yang dapat diakses secara *online* di **https://colab.to/r**.
+
+| $X$ | 1 | 2 | 4 | 6 | 7 |
+|:--: |:--: |:--: |:--: |:--: |:--: |
+| $Y$ | 3 | 5 | 7 | 8 | 10 |
+
+
+Langkah pertama adalah menginput data
+
+```{r, message=FALSE}
+x <- c(1, 2, 4, 6, 7)
+y <- c(3, 5, 7, 8, 10)
+```
+
+Gunakan fungsi `lm()` untuk membentuk model regresi linier dan fungsi `summary()` untuk melihat ringkasan hasilnya.
+
+```{r eval=FALSE}
+model <- lm(y ~ x)
+summary(model)
+```
+
+]
+
+
+.pull-right[
+
+
+]
+
+---
+
+<br><br>
+Berikut adalah output yang dihasilkan.
+
+```{r echo=FALSE}
+x <- c(1, 2, 4, 6, 7)
+y <- c(3, 5, 7, 8, 10)
+model <- lm(y ~ x)
+summary(model)
+
+```
+
+
+---
+
+<br><br><br>
+
+Gunakan fungsi `anova()` untuk mendapatkan ANOVA dari model regresi yang dibuat.
+
+```{r echo=FALSE}
+x <- c(1, 2, 4, 6, 7)
+y <- c(3, 5, 7, 8, 10)
+model <- lm(y ~ x)
+anova(model)
+
+```
+
+### Apakah hasilnya sama dengan perhitungan manual?
 
 ---
 
@@ -673,7 +739,7 @@ Jika kenaikan biaya promosi adalah sebesar 5%, maka penjualan diprediksi akan na
 
 .pull-right[
 
-**Latihan**
+**Latihan (gunakan bantuan R)**
 
 Apakah semakin tua mobil semakin besar juga emisi HC yang dihasilkan?
 

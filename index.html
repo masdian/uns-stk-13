@@ -4,7 +4,7 @@
     <title>Statistika: Pertemuan 13</title>
     <meta charset="utf-8" />
     <meta name="author" content="oleh Riana Hadiana" />
-    <script src="libs/header-attrs-2.11/header-attrs.js"></script>
+    <script src="libs/header-attrs-2.19/header-attrs.js"></script>
     <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
     <link href="libs/remark-css-0.0.1/default-fonts.css" rel="stylesheet" />
     <link href="libs/tile-view-0.2.6/tile-view.css" rel="stylesheet" />
@@ -28,10 +28,18 @@
     <textarea id="source">
 class: center, middle, inverse, title-slide
 
+.title[
 # Statistika: Pertemuan 13
+]
+.subtitle[
 ## Analisis Regresi: Regresi Linear Sederhana
+]
+.author[
 ### oleh Riana Hadiana
+]
+.institute[
 ### Universitas Serang Raya
+]
 
 ---
 
@@ -103,12 +111,12 @@ top:1em;right:1em;
 
 ## **Pendahuluan**
 
-### Hubungan Antara 2 Peubah atau Lebih
+#### Hubungan Antara 2 Peubah atau Lebih
 
 | PEUBAH    | KASUS   | PENGUMPULAN DATA    | JENIS HUBUNGANNYA |
 |:--        |:--      | :--                 |:--                |
-|1. Dosis Pupuk &lt;br&gt; 2. Banyaknya padi yang dihasilkan | Diduga dosis pupuk mempengaruhi banyaknya padi yang dihasilkan/ha | Dosis pupuk ditentukan dahulu, faktor-faktor lain yg mempengaruhi banyaknya padi dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya padi yang dihasilkan | Perubahan banyaknya padi yg dihasilkan/ha dipengaruhi oleh perubahan dosis pupuk `\(\rightarrow\)` **HUB SEBAB AKIBAT** |
-|1. Tinggi badan &lt;br&gt; 2. Berat badan | Diduga tinggi badan dan berat badan memiliki hubungan | Dimulai dengan mengamati tinggi badan dahulu, disusul mengamati peubah yang dianggap relevan (berat badan), atau sebaliknya.| Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh perubahan peubah lainnya &lt;br&gt; `\(\rightarrow\)` **bukan HUB SEBAB AKIBAT** Ingin diketahui kekuatan dan arah hubungannya|
+|1. Dosis Pupuk &lt;br&gt; 2. Banyaknya padi yang dihasilkan | Diduga dosis pupuk mempengaruhi banyaknya padi yang dihasilkan/ha | Dosis pupuk ditentukan dahulu, faktor-faktor lain yg mempengaruhi banyaknya padi dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya padi yang dihasilkan | Perubahan banyaknya padi yg dihasilkan/ha dipengaruhi oleh perubahan dosis pupuk `\(\rightarrow\)` .red[**HUB SEBAB AKIBAT**] |
+|1. Tinggi badan &lt;br&gt; 2. Berat badan | Diduga tinggi badan dan berat badan memiliki hubungan | Dimulai dengan mengamati tinggi badan dahulu, disusul mengamati peubah yang dianggap relevan (berat badan), atau sebaliknya.| Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh perubahan peubah lainnya &lt;br&gt; `\(\rightarrow\)` .red[**bukan HUB SEBAB AKIBAT**] Ingin diketahui kekuatan dan arah hubungannya|
 
 ]
 
@@ -120,8 +128,8 @@ top:1em;right:1em;
 
 | PEUBAH    | KASUS   | PENGUMPULAN DATA    | JENIS HUBUNGANNYA |
 |:--        |:--      | :--                 |:--                |
-|1. Banyaknya barang terjual/minggu &lt;br&gt; 2. Adanya hari libur/tidak &lt;br&gt; 3. Harga barang | Diduga banyaknya barang terjual/minggu dipengaruhi oleh berbagai peubah, misalnya harga barang, ada/ tidaknya hari libur dlm minggu tsb | Harga barang ditentukan lebih dahulu, faktor-faktor lain yg mempengaruhi banyaknya barang terjual dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya barang yg terjual pada minggu ada hari libur dan minggu tanpa hari libur | Perubahan banyaknya barang yg terjual dipengaruhi oleh perubahan harga dan ada/tidaknya hari libur &lt;br&gt; `\(\rightarrow\)` **Hub SEBAB AKIBAT** |
-|1. Bobot badan &lt;br&gt; 2. Bobot jantung | Diduga bobot badan dan bobot jantung memiliki hubungan | Dimulai dengan mengamati bobot badan terlebih dahulu, segera disusul mengamati peubah yg dianggap relevan (dalam hal ini bobot jantung), atau sebaliknya. | Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh peubah lainnya. &lt;br&gt; `\(\rightarrow\)` **bukan SEBAB AKIBAT**. Ingin diketahui model matematisnya (HUB KUANTITATIF)    |
+|1. Banyaknya barang terjual/minggu &lt;br&gt; 2. Adanya hari libur/tidak &lt;br&gt; 3. Harga barang | Diduga banyaknya barang terjual/minggu dipengaruhi oleh berbagai peubah, misalnya harga barang, ada/ tidaknya hari libur dlm minggu tsb | Harga barang ditentukan lebih dahulu, faktor-faktor lain yg mempengaruhi banyaknya barang terjual dikendalikan sehingga pengaruhnya konstan, kemudian diamati banyaknya barang yg terjual pada minggu ada hari libur dan minggu tanpa hari libur | Perubahan banyaknya barang yg terjual dipengaruhi oleh perubahan harga dan ada/tidaknya hari libur &lt;br&gt; `\(\rightarrow\)` .red[**Hub SEBAB AKIBAT**] |
+|1. Bobot badan &lt;br&gt; 2. Bobot jantung | Diduga bobot badan dan bobot jantung memiliki hubungan | Dimulai dengan mengamati bobot badan terlebih dahulu, segera disusul mengamati peubah yg dianggap relevan (dalam hal ini bobot jantung), atau sebaliknya. | Pengamatan thdp kedua peubah dilakukan secara bersamaan. Sulit untuk mengatakan bahwa perubahan satu peubah disebabkan oleh peubah lainnya. &lt;br&gt; `\(\rightarrow\)` .red[**bukan SEBAB AKIBAT**]. Ingin diketahui model matematisnya (HUB KUANTITATIF)    |
 
 ]
 
@@ -683,6 +691,72 @@ Jika diketahui % kenaikan biaya promosi sebesar 5% `\((X=5\%)\)`, maka prediksi 
 Jika kenaikan biaya promosi adalah sebesar 5%, maka penjualan diprediksi akan naik sebesar 7.64%.
 ]
 
+---
+
+
+.pull-left[
+
+### Analisis Regresi Linier Sederhana menggunakan R
+
+
+Perhitungan analisis regresi linier sederhana pada contoh sebelumnya bisa dilakukan dengan menggunakan bantuan R yang dapat diakses secara *online* di **https://colab.to/r**.
+
+| `\(X\)` | 1 | 2 | 4 | 6 | 7 |
+|:--: |:--: |:--: |:--: |:--: |:--: |
+| `\(Y\)` | 3 | 5 | 7 | 8 | 10 |
+
+
+Langkah pertama adalah menginput data
+
+
+```r
+x &lt;- c(1, 2, 4, 6, 7)
+y &lt;- c(3, 5, 7, 8, 10)
+```
+
+
+```r
+model &lt;- lm(y ~ x)
+summary(model)
+```
+
+]
+
+
+.pull-right[
+
+
+
+]
+
+---
+
+&lt;br&gt;&lt;br&gt;
+Berikut adalah output yang dihasilkan.
+
+
+```
+## 
+## Call:
+## lm(formula = y ~ x)
+## 
+## Residuals:
+##       1       2       3       4       5 
+## -0.4846  0.4769  0.4000 -0.6769  0.2846 
+## 
+## Coefficients:
+##             Estimate Std. Error t value Pr(&gt;|t|)   
+## (Intercept)   2.4462     0.5619   4.354  0.02239 * 
+## x             1.0385     0.1220   8.510  0.00341 **
+## ---
+## Signif. codes:  0 '***' 0.001 '**' 0.01 '*' 0.05 '.' 0.1 ' ' 1
+## 
+## Residual standard error: 0.6222 on 3 degrees of freedom
+## Multiple R-squared:  0.9602,	Adjusted R-squared:  0.947 
+## F-statistic: 72.42 on 1 and 3 DF,  p-value: 0.003408
+```
+
+
 
 ---
 
@@ -699,7 +773,7 @@ Jika kenaikan biaya promosi adalah sebesar 5%, maka penjualan diprediksi akan na
 
 .pull-right[
 
-**Latihan**
+**Latihan (gunakan bantuan R)**
 
 Apakah semakin tua mobil semakin besar juga emisi HC yang dihasilkan?
 
@@ -773,6 +847,19 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
     deleted = true;
   });
 })();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
 (function() {
   "use strict"
   // Replace <script> tags in slides area to make them executable
